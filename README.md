@@ -2,7 +2,7 @@
 
 Repositório para versionamento da atividade 04 de NOSQL da disciplina de banco de dados.
 
-Atividade:
+## Atividade:
 
 🏆 Atividade Módulo 04
 📝 Objetivo: Criar um banco de dados NoSQL
@@ -13,5 +13,14 @@ Nesta atividade, você deverá aplicar conceitos de banco de dados NoSQL e criar
 📄 Formato de entrega: script com as coleções no mongodb.
 
 🎯 Boa atividade! 😊
+
+## Racional:
+Foi criado um arquivo base para inicialização do banco de dados NoSQL do cinema.
+O banco de dados conta com:
+- Filmes
+- Salas
+- Sessões
+- Usuários
+- Ingressos
 
 Autor: Jacques Schmitz Junior
