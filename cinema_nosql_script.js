@@ -1,4 +1,4 @@
-use cinema_db
+use cinema_db;
 
 db.filmes.insertMany([
   {
@@ -21,8 +21,9 @@ db.filmes.insertMany([
     elenco: ["Chris Pratt", "Samuel L. Jackson"],
     em_cartaz: true
   }
-])
+]);
 
+// Salas
 db.salas.insertMany([
   {
     _id: ObjectId(),
@@ -36,24 +37,29 @@ db.salas.insertMany([
     capacidade: 100,
     tipo: "2D"
   }
-])
+]);
+
+const filmeDunaId = db.filmes.findOne({ titulo: "Duna: Parte Dois" })._id;
+const filmeGarfieldId = db.filmes.findOne({ titulo: "Garfield: Fora de Casa" })._id;
+const sala1Id = db.salas.findOne({ numero: 1 })._id;
+const sala2Id = db.salas.findOne({ numero: 2 })._id;
 
 db.sessoes.insertMany([
   {
     _id: ObjectId(),
-    filme_id: db.filmes.findOne({ titulo: "Duna: Parte Dois" })._id,
-    sala_id: db.salas.findOne({ numero: 1 })._id,
+    filme_id: filmeDunaId,
+    sala_id: sala1Id,
     data: ISODate("2025-06-20T18:00:00Z"),
     preco: 35.00
   },
   {
     _id: ObjectId(),
-    filme_id: db.filmes.findOne({ titulo: "Garfield: Fora de Casa" })._id,
-    sala_id: db.salas.findOne({ numero: 2 })._id,
+    filme_id: filmeGarfieldId,
+    sala_id: sala2Id,
     data: ISODate("2025-06-20T15:00:00Z"),
     preco: 25.00
   }
-])
+]);
 
 db.usuarios.insertMany([
   {
@@ -68,23 +74,28 @@ db.usuarios.insertMany([
     email: "carlos.oliveira@email.com",
     telefone: "11888888888"
   }
-])
+]);
+
+const sessaoDunaId = db.sessoes.findOne({ preco: 35.00 })._id;
+const sessaoGarfieldId = db.sessoes.findOne({ preco: 25.00 })._id;
+const usuarioAnaId = db.usuarios.findOne({ nome: "Ana Souza" })._id;
+const usuarioCarlosId = db.usuarios.findOne({ nome: "Carlos Oliveira" })._id;
 
 db.ingressos.insertMany([
   {
     _id: ObjectId(),
-    sessao_id: db.sessoes.findOne({ preco: 35.00 })._id,
-    usuario_id: db.usuarios.findOne({ nome: "Ana Souza" })._id,
+    sessao_id: sessaoDunaId,
+    usuario_id: usuarioAnaId,
     assento: "A10",
     data_compra: ISODate("2025-06-18T13:45:00Z"),
     valor_pago: 35.00
   },
   {
     _id: ObjectId(),
-    sessao_id: db.sessoes.findOne({ preco: 25.00 })._id,
-    usuario_id: db.usuarios.findOne({ nome: "Carlos Oliveira" })._id,
+    sessao_id: sessaoGarfieldId,
+    usuario_id: usuarioCarlosId,
     assento: "B12",
     data_compra: ISODate("2025-06-18T14:00:00Z"),
     valor_pago: 25.00
   }
-])
+]);
