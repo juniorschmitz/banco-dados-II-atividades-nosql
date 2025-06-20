@@ -1,4 +1,12 @@
-use cinema_db;
+const cinema_db = 'cinema_db';
+
+use (cinema_db);
+
+db.createCollection('filmes');
+db.createCollection('salas');
+db.createCollection('sessoes');
+db.createCollection('usuarios');
+db.createCollection('ingressos');
 
 db.filmes.insertMany([
   {
